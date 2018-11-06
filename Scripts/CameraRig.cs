@@ -11,6 +11,7 @@ public class CameraRig : MonoBehaviour
     [Range(-60,60)] public float pan, tilt, roll;
     [Header("Dolly")]
     public float dolly;
+    public float truck;
     public float track1;
     public float track2;
 
@@ -67,7 +68,8 @@ public class CameraRig : MonoBehaviour
     public void Apply()
     {
         dollyTransform.localPosition = 
-        Vector3.forward * dolly 
+        Vector3.forward * dolly
+        + Vector3.right * truck
         + track1Direction * track1
         + track2Direction * track2; 
 
